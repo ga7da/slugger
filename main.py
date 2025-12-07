@@ -1,16 +1,12 @@
 from fastapi import FastAPI
 
+from routers import links
+
 app = FastAPI()
 
+app.include_router(links.router)
 
-@app.post("/long_url")
-async def long_url():
-    return ...
-
-@app.get("/short_url")
-async def short_url():
-    return ...
 
 @app.get("/{slug}")
-async def redirect_to_url(slug: str):
-    return ...
+async def redirect(slug: str):
+    pass
